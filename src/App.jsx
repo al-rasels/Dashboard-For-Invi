@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Sidebar from "./components/Sidebar";
 import Header from "./components/Header";
 import WelcomeCard from "./components/card/WelcomeCard";
-import Statistics from "./components/card/Statistics";
+import Statistics from "./components/card/StatisticsCard";
 import ProfitCard from "./components/card/ProfitCard";
 import ExpenseCard from "./components/card/ExpenseCard";
 import EarningsReportCard from "./components/card/EarningsReportCard";
