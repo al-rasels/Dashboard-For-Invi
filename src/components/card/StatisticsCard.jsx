@@ -1,71 +1,59 @@
 import React from "react";
+import { FaChartPie, FaUsers, FaShoppingCart, FaDollarSign } from "react-icons/fa";
 
 export default function StatisticsCard() {
+  const stats = [
+    {
+      title: "Opening Balance",
+      value: "0.00 (৳)",
+      icon: <FaChartPie />,
+      iconBg: "bg-purple-100",
+      iconColor: "text-purple-600",
+    },
+    {
+      title: "Receive",
+      value: "5,342.00 (৳)",
+      icon: <FaUsers />,
+      iconBg: "bg-blue-100",
+      iconColor: "text-blue-600",
+    },
+    {
+      title: "Expense",
+      value: "0 (৳)",
+      icon: <FaShoppingCart />,
+      iconBg: "bg-red-100",
+      iconColor: "text-red-600",
+    },
+    {
+      title: "Balance",
+      value: "5,342.00 (৳)",
+      icon: <FaDollarSign />,
+      iconBg: "bg-green-100",
+      iconColor: "text-green-600",
+    },
+  ];
+
   return (
-    <div className="rounded-xl bg-white shadow h-full w-full p-5">
+    <div className="bg-white rounded-2xl shadow-lg p-6 w-full hover:shadow-xl transition-shadow duration-300">
       {/* Header */}
-      <div className="flex justify-between items-center border-b pb-3 mb-4">
-        <h5 className="text-lg font-semibold">Statistics</h5>
-        <small className="text-gray-400">Updated 1 month ago</small>
+      <div className="flex justify-between items-center border-b pb-4 mb-4">
+        <h2 className="text-xl font-bold text-gray-800">INVI SOFTWARE</h2>
+        <span className="text-sm text-gray-400">Updated 1 month ago</span>
       </div>
 
-      {/* Body */}
-      <div className="flex items-end">
-        <div className="w-full">
-          <div className="grid grid-cols-4 gap-4">
-            {/* Sales */}
-            <div className="flex items-center gap-4">
-              <div className="p-2 rounded bg-purple-100 text-purple-600">
-                <i className="ti ti-chart-pie-2 text-xl"></i>
-              </div>
-              <div>
-                <h5 className="font-semibold text-base m-0 leading-tight">
-                  230k
-                </h5>
-                <small className="text-gray-500">Sales</small>
-              </div>
+      {/* Stats Body */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        {stats.map((stat, index) => (
+          <div key={index} className="flex items-center text-center flex-col gap-4 bg-gray-50 p-4 rounded-xl">
+            <div className={`p-3 rounded-lg ${stat.iconBg} flex items-center justify-center`}>
+              <span className={`text-xl ${stat.iconColor}`}>{stat.icon}</span>
             </div>
-
-            {/* Customers */}
-            <div className="flex items-center gap-4">
-              <div className="p-2 rounded bg-blue-100 text-blue-600">
-                <i className="ti ti-users text-xl"></i>
-              </div>
-              <div>
-                <h5 className="font-semibold text-base m-0 leading-tight">
-                  8.549k
-                </h5>
-                <small className="text-gray-500">Customers</small>
-              </div>
-            </div>
-
-            {/* Products */}
-            <div className="flex items-center gap-4">
-              <div className="p-2 rounded bg-red-100 text-red-600">
-                <i className="ti ti-shopping-cart text-xl"></i>
-              </div>
-              <div>
-                <h5 className="font-semibold text-base m-0 leading-tight">
-                  1.423k
-                </h5>
-                <small className="text-gray-500">Products</small>
-              </div>
-            </div>
-
-            {/* Revenue */}
-            <div className="flex items-center gap-4">
-              <div className="p-2 rounded bg-green-100 text-green-600">
-                <i className="ti ti-currency-dollar text-xl"></i>
-              </div>
-              <div>
-                <h5 className="font-semibold text-base m-0 leading-tight">
-                  $9745
-                </h5>
-                <small className="text-gray-500">Revenue</small>
-              </div>
+            <div>
+              <h3 className="text-lg font-semibold text-gray-800">{stat.value}</h3>
+              <p className="text-sm text-gray-500">{stat.title}</p>
             </div>
           </div>
-        </div>
+        ))}
       </div>
     </div>
   );

@@ -33,10 +33,15 @@ function App() {
         {/* Content Area */}
         <main className="p-6 flex-1 overflow-y-auto space-y-6">
           {/* Cards Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <WelcomeCard />
-            <Statistics className="md:col-span-2" />
+          <div className="flex gap-6">
+            <div className="flex-[0_0_40%]">
+              <WelcomeCard />
+            </div>
+            <div className="flex-[0_0_58%]">
+              <Statistics />
+            </div>
           </div>
+
           <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
             <ProfitCard />
             <ExpenseCard />
