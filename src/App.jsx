@@ -1,6 +1,6 @@
 import { useState } from "react";
 import WelcomeCard from "./components/card/WelcomeCard";
-import Statistics from "./components/card/Statistics";
+import Statistics from "./components/card/StatisticsCard";
 import ProfitCard from "./components/card/ProfitCard";
 import ExpenseCard from "./components/card/ExpenseCard";
 import GeneratedLeadsCard from "./components/card/GeneratedLeadsCard";
