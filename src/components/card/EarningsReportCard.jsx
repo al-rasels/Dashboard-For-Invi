@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   LineChart,
   Line,
@@ -8,6 +8,7 @@ import {
 
 export default function EarningsReportCard() {
   const [tooltip, setTooltip] = useState(null);
+  const [animate, setAnimate] = useState(false);
   const [year, setYear] = useState("2025");
 
   const chartData = [
@@ -31,6 +32,11 @@ export default function EarningsReportCard() {
     { number: 15 },
   ];
 
+
+  // set animation on mount
+  useEffect(() => {
+    setAnimate(true);
+  }, []);
   return (
     <div className="bg-white p-6 rounded-2xl shadow-md flex w-full relative">
 
@@ -71,12 +77,16 @@ export default function EarningsReportCard() {
           {chartData.map((item, index) => (
             <div key={index} className="flex flex-col items-center w-14">
               
-              <div className="relative flex flex-col justify-end h-64">
+              <div className="relative flex flex-col  justify-end h-64">
 
                 {/* Sell Bar */}
                 <div
-                  className="w-3 bg-indigo-500 rounded-md mb-6 cursor-pointer"
-                  style={{ height: `${item.earn}px` }}
+                  className="w-4 bg-linear-to-t from-green-600 to-emerald-400 rounded-full mb-6 cursor-pointer origin-center transition-all duration-700 ease-out hover:scale-110"
+
+                  style={{
+                    height: `${item.earn}px`,
+                    transform: animate ? "scaleY(1)" : "scaleY(0)",
+                  }}
                   onMouseEnter={(e) =>
                     setTooltip({
                       text: `Sells: $${item.earn}`,
@@ -87,10 +97,15 @@ export default function EarningsReportCard() {
                   onMouseLeave={() => setTooltip(null)}
                 ></div>
 
+
+
                 {/* Collection Bar */}
                 <div
-                  className="w-3 bg-orange-400 rounded-md cursor-pointer"
-                  style={{ height: `${item.exp}px` }}
+                  className="w-4 bg-linear-to-b from-orange-500 to-red-400 rounded-full mb-6 cursor-pointer transition-all duration-700 ease-out hover:scale-110"
+                  style={{
+                    height: `${item.exp}px`,
+                    transform: animate ? "scaleY(1)" : "scaleY(0)",
+                  }}
                   onMouseEnter={(e) =>
                     setTooltip({
                       text: `Collection: $${item.exp}`,

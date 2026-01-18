@@ -7,31 +7,36 @@ export default function StatisticsCard() {
       title: "Opening Balance",
       value: "0.00 (৳)",
       icon: <FaChartPie />,
-      iconBg: "bg-purple-100",
+      iconBg: "bg-white",
       iconColor: "text-purple-600",
+      bgColor: "bg-gradient-to-r from-purple-400 to-purple-600",
     },
     {
       title: "Receive",
       value: "5,342.00 (৳)",
       icon: <FaUsers />,
-      iconBg: "bg-blue-100",
+      iconBg: "bg-white",
       iconColor: "text-blue-600",
+      bgColor: "bg-gradient-to-r from-blue-400 to-blue-600",
     },
     {
       title: "Expense",
       value: "0 (৳)",
       icon: <FaShoppingCart />,
-      iconBg: "bg-red-100",
+      iconBg: "bg-white",
       iconColor: "text-red-600",
+      bgColor: "bg-gradient-to-r from-red-400 to-red-600",
     },
     {
       title: "Balance",
       value: "5,342.00 (৳)",
       icon: <FaDollarSign />,
-      iconBg: "bg-green-100",
+      iconBg: "bg-white",
       iconColor: "text-green-600",
+      bgColor: "bg-gradient-to-r from-green-400 to-green-600",
     },
   ];
+
 
   return (
     <div className="bg-white rounded-2xl shadow-lg p-6 w-full hover:shadow-xl transition-shadow duration-300">
@@ -44,13 +49,13 @@ export default function StatisticsCard() {
       {/* Stats Body */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
         {stats.map((stat, index) => (
-          <div key={index} className="flex items-center text-center flex-col gap-4 bg-gray-50 p-4 rounded-xl">
+          <div key={index} className={`flex items-center text-center flex-col gap-4 ${stat.bgColor} backdrop-blur-3xl shadow-sm p-4 rounded-xl`}>
             <div className={`p-3 rounded-lg ${stat.iconBg} flex items-center justify-center`}>
               <span className={`text-xl ${stat.iconColor}`}>{stat.icon}</span>
             </div>
             <div>
-              <h3 className="text-lg font-semibold text-gray-800">{stat.value}</h3>
-              <p className="text-sm text-gray-500">{stat.title}</p>
+              <h3 className="text-lg font-bold text-white">{stat.value}</h3>
+              <p className="text-sm font-semibold text-white">{stat.title}</p>
             </div>
           </div>
         ))}
