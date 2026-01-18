@@ -41,57 +41,19 @@ export default function MostSoldProductsCard() {
 
   return (
     <div
-      className="bg-white rounded-2xl shadow-2xl overflow-hidden"
-      style={{ width: "530.286px", height: "530.286px" }}
+      className="bg-white rounded-2xl shadow-md overflow-hidden"
+      style={{ width: "530.286px", height: "350.286px" }}
     >
       {/* Header */}
       <div className="flex items-center justify-between px-6 py-4 border-b border-gray-100">
-        <h2 className="text-xl font-bold text-gray-800 tracking-tight">
+        <h2 className="text-lg font-bold text-gray-800 tracking-tight">
           Most Sold Products
         </h2>
       </div>
 
-      {/* Summary row */}
-      <div className="grid grid-cols-3 gap-4 px-6 py-3 bg-gradient-to-r from-gray-50 to-white border-b border-gray-100">
-        {/* Top product (now follows active slice) */}
-        <div className="text-center">
-          <p className="text-[11px] text-gray-500 uppercase tracking-wider">
-            Top Product
-          </p>
-          <div className="mt-1 max-h-10 overflow-y-auto px-1 custom-scrollbar">
-            <p className="text-xs font-semibold text-emerald-700 leading-snug">
-              {selectedItem.name}
-            </p>
-          </div>
-        </div>
-
-        {/* Active share */}
-        <div className="text-center border-x border-gray-200">
-          <p className="text-[11px] text-gray-500 uppercase tracking-wider">
-            Active Share
-          </p>
-          <p className="text-xl font-bold text-emerald-600">
-            {selectedItem.value.toFixed(2)}%
-          </p>
-          <p className="text-[11px] text-gray-400 mt-0.5">
-            Rank #{selectedRank}
-          </p>
-        </div>
-
-        {/* Count */}
-        <div className="text-center">
-          <p className="text-[11px] text-gray-500 uppercase tracking-wider">
-            Products
-          </p>
-          <p className="text-xl font-bold text-blue-600">
-            {productData.length}
-          </p>
-          <p className="text-[11px] text-gray-400 mt-0.5">in this chart</p>
-        </div>
-      </div>
-
+      {/*
       {/* Chart Area */}
-      <div className="px-4 pb-4" style={{ height: "360px" }}>
+      <div className="px-4 pb-4" style={{ height: "300px" }}>
         <div className="relative w-full h-full bg-white flex items-center justify-center">
           {/* Soft radial glow */}
           <div className="absolute inset-10 rounded-full bg-gradient-to-br from-sky-200/45 via-emerald-100/40 to-slate-100/60 blur-2xl pointer-events-none" />

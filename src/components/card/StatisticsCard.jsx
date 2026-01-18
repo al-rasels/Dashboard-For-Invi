@@ -41,7 +41,7 @@ export default function StatisticsCard() {
   return (
     <div className="bg-white rounded-2xl shadow-lg p-6 w-full hover:shadow-xl transition-shadow duration-300">
       {/* Header */}
-      <div className="flex justify-between items-center border-b pb-4 mb-4">
+      <div className="flex justify-between items-center border-b-2 border-gray-200 pb-4 mb-4">
         <h2 className="text-xl font-bold text-gray-800">INVI SOFTWARE</h2>
         <span className="text-sm text-gray-400">Updated 1 month ago</span>
       </div>
