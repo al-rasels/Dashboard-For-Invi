@@ -52,11 +52,7 @@ function App() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
             <ProfitCard />
-<<<<<<< HEAD
             <ExpenseCard />
-=======
-            <ExpensesCard />
->>>>>>> 09ad83f1a6ea0729a0606fa984c2b6b86b445f24
             {/* <GeneratedLeadsCard /> */}
             <MostSoldProductsCard />
 
