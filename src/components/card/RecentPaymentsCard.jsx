@@ -222,12 +222,10 @@ export default function RecentPaymentsCard() {
                   </td>
                   <td className="py-3 px-4">
                     <div className="flex items-center space-x-2">
-
                       <div className="flex flex-col">
                         <span className="font-bold text-gray-900 text-lg">
                           {formatCurrency(row.payment)}
                         </span>
-
                       </div>
                     </div>
                   </td>
