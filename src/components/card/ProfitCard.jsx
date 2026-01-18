@@ -2,10 +2,10 @@ import React from 'react';
 
 export default function ProfitCard () {
     return (
-    <div className="w-full bg-white rounded-2xl shadow p-6">
+        <div className="w-full bg-white rounded-2xl flex justify-center items-center shadow p-6">
         <h3 className="text-gray-600">Profit</h3>
         <p className="text-gray-500 text-sm mb-4">Last Month</p>
-        <div className="h-28 flex items-center">
+            <div className="h-32 flex items-center">
         {/* Replace Image with Dynamic SVG */}
             <svg
                 width="100%"

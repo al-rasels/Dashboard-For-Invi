@@ -31,12 +31,19 @@ export default function EarningsReportCard() {
     { number: 20 },
     { number: 15 },
   ];
+  // chart color gradient styles
+  const sellColor = "bg-linear-to-t from-green-600 to-emerald-400"
+  const collectionColor = "bg-linear-to-b from-teal-500 to-cyan-300"
 
 
   // set animation on mount
   useEffect(() => {
     setAnimate(true);
   }, []);
+
+
+
+  // JSX Return
   return (
     <div className="bg-white p-6 rounded-2xl shadow-md flex w-full relative">
 
@@ -55,18 +62,18 @@ export default function EarningsReportCard() {
       )}
 
       {/* ==== LEFT CHART AREA ==== */}
-      <div className="w-2/3 pr-8 border-r relative">
+      <div className="w-2/3 pr-8 border-r-2 border-gray-200 relative">
 
         <div className="flex items-center justify-between mb-6">
           <h2 className="text-xl font-semibold text-gray-800">Sells VS Collection</h2>
 
           <div className="flex gap-6">
             <div className="flex items-center gap-2">
-              <span className="w-3 h-3 rounded-full bg-indigo-500"></span>
+              <span className={`w-3 h-3 rounded-full ${sellColor}`}></span>
               <span className="text-gray-600 text-sm">Sells</span>
             </div>
             <div className="flex items-center gap-2">
-              <span className="w-3 h-3 rounded-full bg-orange-400"></span>
+              <span className={`w-3 h-3 rounded-full ${collectionColor}`}></span>
               <span className="text-gray-600 text-sm">Collection</span>
             </div>
           </div>
@@ -81,7 +88,7 @@ export default function EarningsReportCard() {
 
                 {/* Sell Bar */}
                 <div
-                  className="w-4 bg-linear-to-t from-green-600 to-emerald-400 rounded-full mb-6 cursor-pointer origin-center transition-all duration-700 ease-out hover:scale-110"
+                  className={`w-4 ${sellColor} rounded-full mb-6 cursor-pointer origin-center transition-all duration-700 ease-out hover:scale-110`}
 
                   style={{
                     height: `${item.earn}px`,
@@ -101,7 +108,7 @@ export default function EarningsReportCard() {
 
                 {/* Collection Bar */}
                 <div
-                  className="w-4 bg-linear-to-b from-orange-500 to-red-400 rounded-full mb-6 cursor-pointer transition-all duration-700 ease-out hover:scale-110"
+                  className={`w-4 ${collectionColor} rounded-full mb-6 cursor-pointer transition-all duration-700 ease-out hover:scale-110`}
                   style={{
                     height: `${item.exp}px`,
                     transform: animate ? "scaleY(1)" : "scaleY(0)",

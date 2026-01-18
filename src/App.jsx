@@ -13,6 +13,7 @@ import RecentPaymentsCard from "./components/card/RecentPaymentsCard";
 import MonthlySalesCard from "./components/card/MonthlySalesCard";
 import MostSoldProductsCard from "./components/card/MostSoldProductsCard";
 import "./App.css";
+import ExpensesCard from "./components/card/GeneratedLeadsCard";
 
 function App() {
   const [sidebarOpen, setSidebarOpen] = useState(true);
@@ -52,7 +53,9 @@ function App() {
           <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
             <ProfitCard />
             <ExpenseCard />
-            <GeneratedLeadsCard />
+            {/* <GeneratedLeadsCard /> */}
+            <MostSoldProductsCard />
+
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-2 gap-6">
             <TransactionsCard />
@@ -63,7 +66,7 @@ function App() {
             <RecentPaymentsCard />
           </div>
           <div>
-            <MostSoldProductsCard />
+            {/* <MostSoldProductsCard /> */}
           </div>
         </main>
       </div>
