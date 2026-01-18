@@ -84,18 +84,6 @@ const getAvatarColor = (clientName) => {
 export default function ClientPaymentsCard() {
   const [hoveredRow, setHoveredRow] = useState(null);
 
-  // Function to format currency in Bangladeshi Taka (৳)
-  const formatCurrency = (value) => {
-    if (!value) return '৳0.00';
-    const num = Number(value.toString().replace(/,/g, ''));
-    if (isNaN(num)) return '৳0.00';
-    return new Intl.NumberFormat('bn-BD', {
-      style: 'currency',
-      currency: 'BDT',
-      minimumFractionDigits: 2,
-      maximumFractionDigits: 2
-    }).format(num);
-  };
 
 
   return (
@@ -175,7 +163,7 @@ export default function ClientPaymentsCard() {
                   </td>
                   <td className="py-3 px-4">
                     <div className="flex items-center">
-                      <span className="font-bold text-gray-900 text-lg">{formatCurrency(row.total)}</span>
+                      <span className="font-bold text-gray-900 text-lg">{row.total}</span>
                     </div>
                   </td>
                   <td className="py-3 px-4">
@@ -185,7 +173,7 @@ export default function ClientPaymentsCard() {
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                         </svg>
                       </div>
-                      <span className="font-semibold text-emerald-700">{formatCurrency(row.payment)}</span>
+                      <span className="font-semibold text-emerald-700">{row.payment}</span>
                     </div>
                   </td>
 

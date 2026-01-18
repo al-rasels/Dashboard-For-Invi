@@ -128,19 +128,6 @@ const getPaymentStatus = (amount) => {
 export default function RecentPaymentsCard() {
   const [hoveredRow, setHoveredRow] = useState(null);
 
-  // Function to format currency in Bangladeshi Taka (৳)
-  const formatCurrency = (value) => {
-    if (!value) return '৳0.00';
-    const num = Number(value.toString().replace(/,/g, ''));
-    if (isNaN(num)) return '৳0.00';
-    return new Intl.NumberFormat('bn-BD', {
-      style: 'currency',
-      currency: 'BDT',
-      minimumFractionDigits: 2,
-      maximumFractionDigits: 2
-    }).format(num);
-  };
-
 
 
   return (
@@ -224,7 +211,7 @@ export default function RecentPaymentsCard() {
                     <div className="flex items-center space-x-2">
                       <div className="flex flex-col">
                         <span className="font-bold text-gray-900 text-lg">
-                          {formatCurrency(row.payment)}
+                          {row.payment}
                         </span>
                       </div>
                     </div>
