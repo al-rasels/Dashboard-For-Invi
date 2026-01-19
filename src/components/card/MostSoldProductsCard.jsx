@@ -23,7 +23,7 @@ const options = {
   plotOptions: {
     pie: {
       donut: {
-        size: "70%",
+        size: "45%",
         labels: {
           show: true,
           total: {
@@ -43,14 +43,14 @@ export default function MostSoldProductsCard() {
 
 
   return (
-    <div className="bg-white rounded-2xl shadow-md flex flex-col items-center justify-center p-6">
+    <div className="bg-white rounded-2xl shadow-md  p-6">
       {/* Header */}
-      <div className="w-full border-b border-gray-100 mb-4">
-        <h2 className="text-lg font-bold text-gray-800 text-center tracking-tight">
+      <div className="w-full border-b border-gray-100 mb-4 ">
+        <h2 className="text-lg font-bold text-gray-800 text-left center tracking-tight">
           Most Sold Products
         </h2>
       </div>
-
+      <div className="flex flex-col  justify-center">
       {/* Chart Area */}
       <div className="w-full flex items-center justify-center">
         <div className="w-full max-w-[320px] h-[320px]">
@@ -62,6 +62,7 @@ export default function MostSoldProductsCard() {
             height="100%"
           />
         </div>
+      </div>
       </div>
     </div>
 

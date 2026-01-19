@@ -13,10 +13,10 @@ export default function ProfitCard() {
         { label: "Sep", earn: 150, exp: 130 },
     ];
     return (
-        <div className="w-full bg-white rounded-2xl flex flex-col justify-center items-center shadow p-6">
-            <h3 className="text-gray-600">Profit</h3>
-            <p className="text-gray-500 text-sm mb-4">Last Month</p>
-            <div className="w-full max-w-[700px] h-[180px]">
+      <div className="w-full bg-white rounded-2xl flex flex-col justify-center items-center shadow px-16">
+        <h3 className="text-gray-600 text-2xl self-start">Profit</h3>
+        <p className="text-gray-500 text-sm mb-4 self-start">Last Month</p>
+        <div className="w-full max-w-[700px] h-[220px]">
                 <LineChart
                     style={{ width: '100%', maxWidth: '700px', maxHeight: '20vh', aspectRatio: 1.518 }}
                     responsive
