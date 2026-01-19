@@ -82,7 +82,7 @@ export default function MonthlySalesCard() {
   return (
     <div
       className="bg-white rounded-2xl shadow-md overflow-hidden"
-      style={{ width: "780.286px", height: "630.286px" }}
+      style={{ width: "100%", height: "630.286px" }}
     >
       {/* Header */}
       <div className="flex items-center justify-between px-6 py-4 border-b border-gray-100">

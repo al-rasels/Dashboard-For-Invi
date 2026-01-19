@@ -1,10 +1,5 @@
 import React, { useEffect, useState } from "react";
-import {
-  LineChart,
-  Line,
-  ResponsiveContainer,
-  Tooltip as ReTooltip,
-} from "recharts";
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, LineChart, Line, Tooltip as ReTooltip, } from 'recharts';
 
 export default function EarningsReportCard() {
   const [tooltip, setTooltip] = useState(null);
@@ -22,6 +17,7 @@ export default function EarningsReportCard() {
     { label: "Aug", earn: 250, exp: 80 },
     { label: "Sep", earn: 150, exp: 130 },
   ];
+  // #region Sample data
 
   const miniGraphData = [
     { number: 40 },
@@ -31,10 +27,6 @@ export default function EarningsReportCard() {
     { number: 20 },
     { number: 15 },
   ];
-  // chart color gradient styles
-  const sellColor = "bg-linear-to-t from-green-600 to-emerald-400"
-  const collectionColor = "bg-linear-to-b from-teal-500 to-cyan-300"
-
 
   // set animation on mount
   useEffect(() => {
@@ -69,64 +61,38 @@ export default function EarningsReportCard() {
 
           <div className="flex gap-6">
             <div className="flex items-center gap-2">
-              <span className={`w-3 h-3 rounded-full ${sellColor}`}></span>
+              <span className={`w-3 h-3 rounded-full bg-emerald-500`}></span>
               <span className="text-gray-600 text-sm">Sells</span>
             </div>
             <div className="flex items-center gap-2">
-              <span className={`w-3 h-3 rounded-full ${collectionColor}`}></span>
+              <span className={`w-3 h-3 rounded-full bg-purple-600`}></span>
               <span className="text-gray-600 text-sm">Collection</span>
             </div>
           </div>
         </div>
 
         {/* ==== Custom Bar Chart ==== */}
-        <div className="flex justify-between items-end h-80 pb-4">
-          {chartData.map((item, index) => (
-            <div key={index} className="flex flex-col items-center w-14">
-              
-              <div className="relative flex flex-col  justify-end h-64">
+        <div className="mx-auto flex justify-center">
+          <BarChart
+            style={{ width: '80%', maxWidth: '100%', maxHeight: '60vh', aspectRatio: 1.9 }}
+            responsive
+            data={chartData}
+            margin={{
+              top: 5,
+              right: 0,
+              left: 0,
+              bottom: 5,
+            }}
+          >
+            <CartesianGrid strokeDasharray="3 3" />
+            <XAxis dataKey="label" />
+            <YAxis width="auto" />
+            <Tooltip />
+            <Legend />
+            <Bar dataKey="earn" fill="#8884d8" activeBar={{ fill: 'pink', stroke: 'blue' }} radius={[10, 10, 0, 0]} />
+            <Bar dataKey="exp" fill="#82ca9d" activeBar={{ fill: 'gold', stroke: 'purple' }} radius={[10, 10, 0, 0]} />
 
-                {/* Sell Bar */}
-                <div
-                  className={`w-4 ${sellColor} rounded-full mb-6 cursor-pointer origin-center transition-all duration-700 ease-out hover:scale-110`}
-
-                  style={{
-                    height: `${item.earn}px`,
-                    transform: animate ? "scaleY(1)" : "scaleY(0)",
-                  }}
-                  onMouseEnter={(e) =>
-                    setTooltip({
-                      text: `Sells: $${item.earn}`,
-                      x: e.clientX,
-                      y: e.clientY,
-                    })
-                  }
-                  onMouseLeave={() => setTooltip(null)}
-                ></div>
-
-
-
-                {/* Collection Bar */}
-                <div
-                  className={`w-4 ${collectionColor} rounded-full mb-6 cursor-pointer transition-all duration-700 ease-out hover:scale-110`}
-                  style={{
-                    height: `${item.exp}px`,
-                    transform: animate ? "scaleY(1)" : "scaleY(0)",
-                  }}
-                  onMouseEnter={(e) =>
-                    setTooltip({
-                      text: `Collection: $${item.exp}`,
-                      x: e.clientX,
-                      y: e.clientY,
-                    })
-                  }
-                  onMouseLeave={() => setTooltip(null)}
-                ></div>
-              </div>
-
-              <span className="text-xs text-gray-500 mt-2">{item.label}</span>
-            </div>
-          ))}
+          </BarChart>
         </div>
       </div>
 
@@ -154,16 +120,33 @@ export default function EarningsReportCard() {
 
         {/* ==== Mini Graph (NO ZOOM) ==== */}
         <div className="mt-10 flex justify-center">
-          <div style={{ width: 200, height: 60 }}>
-            <ResponsiveContainer>
-              <LineChart data={miniGraphData}>
-                <Line
-                  type="monotone"
-                  dataKey="number"
-                  stroke="#6366f1"
-                  strokeWidth={2}
-                />
-                <ReTooltip />
+          <div className="w-full max-w-[700px] h-[180px]">
+
+            <LineChart
+              style={{ width: '100%', maxWidth: '700px', maxHeight: '20vh', aspectRatio: 1.518 }}
+              responsive
+              data={chartData}
+              syncId="anyId"
+              margin={{
+                top: 10,
+                right: 30,
+                left: 0,
+                bottom: 0,
+              }}
+            >
+              <CartesianGrid strokeDasharray="3 3" />
+              <XAxis dataKey="label" />
+              <YAxis />
+              <Tooltip />
+              <Line type="monotone" dataKey="exp" stroke="#8884d8" fill="#8884d8" />
+            </LineChart>
+            <ResponsiveContainer width="90%" height="100%">
+              <LineChart
+                style={{ width: '100%', maxWidth: '300px', maxHeight: '200px', aspectRatio: 1.618 }}
+                responsive
+                data={chartData}
+              >
+                <Line type="monotone" dataKey="pv" stroke="#8884d8" strokeWidth={2} />
               </LineChart>
             </ResponsiveContainer>
           </div>
@@ -177,3 +160,5 @@ export default function EarningsReportCard() {
     </div>
   );
 }
+
+
